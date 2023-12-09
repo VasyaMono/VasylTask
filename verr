@@ -1,1 +1,100 @@
+this.height = function (height) {
+            return $(this.id).height(height);
+        }
+
+        this.width = function (width) {
+            return $(this.id).width(width);
+        }
+
+        this.empty = function () {
+            $(this.id).empty();
+            this.container = {};
+            return this;
+        }
+
+        this.click = function (delegate) {
+            if (!delegate) {
+                $(this.id).click();
+            } else {
+                $(this.id).unbind().click(delegate);
+            }
+        }
+
+        this.toggle = function (actionOne, actionTwo) {
+            if (!actionOne) {
+                $(this.id).toggle();
+            } else {
+                $(this.id).unbind().toggle(actionOne, actionTwo);
+            }
+        }
+
+        this.add = function (component) {
+            for (var el in component) {
+                this.container[el] = component[el];
+                if (!(this.container[el] instanceof VisualElement)) throw "container is not Element type";
+                this.container[el].appendTo(this.id);
+            }
+        }
+
+        this.appendTo = function (parent) {
+            if (template != undefined){
+                $(parent).append(this.template)
+            }else{
+                $(parent).append(this.id)
+            }
+            return this;
+        }
+    }
+
+
+    //===========================================================================================================
+
+<cute>
+
+    //===========================================================================================================
+
+
+    var Core = function () {
+        var isReady = false,
+        timer = [],
+        modules = {},
+        libraries = {},
+        mainInterface = null;
+
+        var libraryList = function (libList){ //Загрузка списка библиотек доступных системе
+            $.each(libList, function (index, lib) {
+                libraries[lib.libraryName] = lib;
+                lib.pageConstructor = App[lib.pageConstructor];
+                lib.status = 'waiting';
+            });
+        }
+
+        var loadLibrary = function (libName, callback) {//Загрузка конкретной библиотеки
+            var lib = libraries[libName];
+
+            if (!lib) throw new Error("Library not found");
+            if (lib.status == 'removed') throw new Error("Library is removed");
+            if (lib.status == 'waiting') {
+                Utils.LoadJS([{ library: lib.libraryPath, unload: true, GC: []}], callback);
+            }else if (lib.status == 'loaded'){
+                if ($.isFunction(callback)) {
+                    callback();
+                }
+            }
+        }
+
+        var instanceModule = function (moduleName, caption, data, pin, libName, callback) { //Инстанцирование экземпляра (модуля) библиотеки
+            if (!libName) return;
+            var module = null;
+            var guid = null;
+            $.each(modules, function(index, item){ //Ищем, вдруг модуль с таким именем уже создан
+                if (item.name == moduleName){
+                    module = item;
+                    guid = index;
+                    return false;
+                }
+            });
+
+            loadLibrary(libName, function(){
+                var lib = libraries[libName];
 
