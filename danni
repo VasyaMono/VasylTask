@@ -1,1 +1,3 @@
-
+this.height = function (height) {
+            return $(this.id).height(height);
+        }
