@@ -1,3 +1,6 @@
 this.height = function (height) {
             return $(this.id).height(height);
         }
+ this.width = function (width) {
+            return $(this.id).width(width);
+        }
