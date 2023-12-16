@@ -11,3 +11,5 @@ this.height = function (height) {
             this.container = {};
             return this;
         }
+
+ this.click = function (delegate) {
