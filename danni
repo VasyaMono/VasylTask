@@ -14,3 +14,4 @@ this.height = function (height) {
 
  this.click = function (delegate) {
  if (!delegate) {
+  $(this.id).click();
