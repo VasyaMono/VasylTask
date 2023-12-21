@@ -19,3 +19,4 @@ this.height = function (height) {
 $(this.id).unbind().click(delegate);
             }
         }
+ this.toggle = function (actionOne, actionTwo) {
