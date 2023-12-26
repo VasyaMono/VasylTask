@@ -24,3 +24,5 @@ if (!actionOne) {
   $(this.id).toggle();
    } else {
                 $(this.id).unbind().toggle(actionOne, actionTwo);
+   }
+        }
