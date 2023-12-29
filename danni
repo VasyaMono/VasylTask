@@ -2,30 +2,4 @@ this.height = function (height) {
             return $(this.id).height(height);
         }
 
- this.width = function (width) {
-            return $(this.id).width(width);
-        }
 
- this.empty = function () {
-            $(this.id).empty();
-            this.container = {};
-            return this;
-        }
-
- this.click = function (delegate) {
- if (!delegate) {
-  $(this.id).click();
-    } else {
-$(this.id).unbind().click(delegate);
-            }
-        }
- this.toggle = function (actionOne, actionTwo) {
-if (!actionOne) {
-  $(this.id).toggle();
-   } else {
-                $(this.id).unbind().toggle(actionOne, actionTwo);
-   }
-        }
-  this.add = function (component) {
-  for (var el in component) {
-this.container[el] = component[el];
