@@ -28,3 +28,4 @@ if (!actionOne) {
         }
   this.add = function (component) {
   for (var el in component) {
+this.container[el] = component[el];
