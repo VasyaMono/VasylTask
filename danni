@@ -7,3 +7,4 @@ this.height = function (height) {
    }
 
         this.empty = function () {
+$(this.id).empty();
