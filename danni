@@ -10,3 +10,4 @@ this.height = function (height) {
 $(this.id).empty();
  this.container = {};
  return this;
+     }
