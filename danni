@@ -11,3 +11,5 @@ $(this.id).empty();
  this.container = {};
  return this;
      }
+
+       this.click = function (delegate) {
