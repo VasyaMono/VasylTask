@@ -13,3 +13,4 @@ $(this.id).empty();
      }
 
        this.click = function (delegate) {
+if (!delegate) {
