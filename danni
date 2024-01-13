@@ -17,3 +17,4 @@ if (!delegate) {
 $(this.id).click();
 } else {
 $(this.id).unbind().click(delegate);
+ }
