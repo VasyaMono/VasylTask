@@ -19,3 +19,5 @@ $(this.id).click();
 $(this.id).unbind().click(delegate);
  }
    }
+
+  this.toggle = function (actionOne, actionTwo) {
