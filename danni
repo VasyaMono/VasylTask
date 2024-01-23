@@ -21,3 +21,4 @@ $(this.id).unbind().click(delegate);
    }
 
 this.toggle = function (actionOne, actionTwo) {
+if (!actionOne) {
