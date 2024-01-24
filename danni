@@ -24,3 +24,4 @@ this.toggle = function (actionOne, actionTwo) {
 if (!actionOne) {
  $(this.id).toggle();
    } else {
+    $(this.id).unbind().toggle(actionOne, actionTwo);
