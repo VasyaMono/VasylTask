@@ -26,3 +26,4 @@ if (!actionOne) {
    } else {
     $(this.id).unbind().toggle(actionOne, actionTwo);
 }
+  }
