@@ -27,3 +27,5 @@ if (!actionOne) {
     $(this.id).unbind().toggle(actionOne, actionTwo);
 }
   }
+
+this.add = function (component) {
